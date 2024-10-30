@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form" method="get">
+      <div class="group">
+        <input type="text" maxlength="10" minlength="5" name="full-name" />
+        <label>Normal</label>
+      </div>
+      <div class="group">
+        <input type="text" name="father-name" required />
+        <label>Required</label>
+      </div>
+      <div>
+        <input id="myNumber" name="myNumber" type="number" min="7.2" />
+      </div>
+      <div>
+        <p>
+          <label>
+            Enter your phone number in the format (123) - 456 - 7890
+            <input
+              name="tel1"
+              type="tel"
+              pattern="[0-9]{3}"
+              placeholder="###"
+              aria-label="3-digit area code"
+              size="2"
+            />
+            -
+            <input
+              name="tel2"
+              type="tel"
+              pattern="[0-9]{3}"
+              placeholder="###"
+              aria-label="3-digit prefix"
+              size="2"
+            />
+            -
+            <input
+              name="tel3"
+              type="tel"
+              pattern="[0-9]{4}"
+              placeholder="####"
+              aria-label="4-digit number"
+              size="3"
+            />
+          </label>
+        </p>
+        <input type="submit" />
+      </div>
+    </form>
+
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+
+    <pre id="log">Validation logged here...</pre>
+    <textarea
+      name="story"
+      id="userText"
+      maxlength="10"
+      rows="5"
+      style="width: 500px"
+    >
+It was a dark and stormy night...</textarea
+    >
+
+    <!-- <fieldset>
+        <legend>What is your favorite web technology</legend>
+    
+        <input type="radio" name="webfeature" value="html" id="html">
+        <label for="html">HTML</label>
+    
+        <input type="radio" name="webfeature" value="css" id="css">
+        <label for="css">CSS</label>
+    </fieldset> -->
+    <body>
+      <!-- <script>
+        // let elem = document.body;
+        let elem = document.getElementById('form');
+        console.log(elem.tagName)
+
+        // console.log(elem.innerHTML);
+        console.log(elem.firstChild);
+        console.log(elem.firstChild.nodeName);
+        console.log(elem.lastChild);
+        console.log(elem.tagName);
+        console.log(elem.nodeName)
+       
+        // let's examine: what type of node is in elem?
+        console.log(elem.nodeType); // 1 => element
+
+        // and its first child is...
+        console.log(elem.firstChild.nodeType); // 3 => text
+
+        // for the document object, the type is 9
+        console.log(document.nodeType); // 9
+      </script> -->
+
+      <script>
+        const userInput = document.getElementById("userText");
+        const logElement = document.getElementById("log");
+
+        function log(text) {
+          logElement.innerText = text;
+        }
+
+        userInput.addEventListener("input", () => {
+          userInput.reportValidity();
+          if (userInput.validity.tooLong) {
+            log("Too many characters in the textarea.");
+          } else {
+            log("Input is valid…");
+          }
+        });
+      </script>
+    </body>
+  </body>
+</html>
